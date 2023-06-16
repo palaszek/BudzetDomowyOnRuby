@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Budzet domowy</title>
+  <meta http-equiv="Content-Type" content="text/html;  charset=iso-8859-2">
+  <link rel="stylesheet" href="walletshow.css" type="text/css">
+
+</head>
+<body>
+<div style="text-align: center;"><h1>Budżet Domowy - <%= @wallet.name%></h1></div>
+<div class="wrapper">
+  <div class="left-column">
+    <h3>Dostepne Portfele:</h3>
+    <ul>
+      <% @user.wallets.each do |wallet| %>
+        <li>
+          <%= link_to wallet.name, wallet %>
+        </li>
+      <%end%>
+
+    </ul></div>
+  <div class="right-column">
+    <h3>Historia Transakcji:</h3></div>
+  <ul>
+    <% @transactions.each do |transaction| %>
+      <li>
+        <%= transaction.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
+        <%if transaction.is_a? Income  %>
+          <d style="color:green">Przychód:</d>
+        <% else %>
+          <d style="color:red">Wydatek:</d>
+        <% end %>
+
+
+
+        <b><%= transaction.title %></b> <%= transaction.amount %>zł
+      </li>
+    <%end%>
+  </ul>
+
+
+  <button type="button"><%= link_to "Dodaj Wydatek", new_wallet_spending_path(wallet_id: @wallet.id) %></button>
+  <button type="button"><%= link_to "Dodaj Przychód", new_wallet_income_path(wallet_id: @wallet.id) %></button>
+  <li class="list_li"><%= button_to 'WYLOGUJ SIĘ', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>
+</div>
+
+<div style="text-align: center;"><%= pie_chart @wallet.spendings.group(:category_id).count %></div>
+
+
+<div style="text-align: center;"><h3><%= @wallet.name %> - dostępne środki: <%= @dostepnesrodki.round(2) %>zł</h3></div>
+
+</body>
+</html>
