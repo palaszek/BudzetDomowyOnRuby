@@ -1,0 +1,12 @@
+<div style="text-align: center;"><h1>Budżet domowy</h1></div>
+<div style="text-align: center;"><h2>Witaj <%= @user.nick %>!</h2></div>
+
+<ul>
+  <% @wallets.each do |wallet| %>
+    <li>
+      <%= link_to wallet.name, wallet %>
+    </li>
+  <%end%>
+</ul>
+<button type="button"><%= link_to "Dodaj nowy portfel", new_wallet_path(user_id: @user.id) %></button>
+<li class="list_li"><%= button_to 'wyloguj się', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>

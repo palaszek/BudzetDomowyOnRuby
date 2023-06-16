@@ -1,4 +1,5 @@
 class IncomesController < ApplicationController
+  before_action :authenticate_user!
   def new
     @wallet = Wallet.find(params[:wallet_id])
   end

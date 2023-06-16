@@ -7,7 +7,8 @@
 
 </head>
 <body>
-<div style="text-align: center;"><h1>Budżet Domowy - <%= @wallet.name%></h1></div>
+
+<div style="text-align: center;"><h1><%= @wallet.name%></h1></div>
 <div class="wrapper">
   <div class="left-column">
     <h3>Dostepne Portfele:</h3>
@@ -17,6 +18,7 @@
           <%= link_to wallet.name, wallet %>
         </li>
       <%end%>
+      <button type="button"><%= link_to "Dodaj nowy portfel", new_wallet_path(user_id: @user.id) %></button>
 
     </ul></div>
   <div class="right-column">
@@ -41,7 +43,15 @@
 
   <button type="button"><%= link_to "Dodaj Wydatek", new_wallet_spending_path(wallet_id: @wallet.id) %></button>
   <button type="button"><%= link_to "Dodaj Przychód", new_wallet_income_path(wallet_id: @wallet.id) %></button>
-  <li class="list_li"><%= button_to 'WYLOGUJ SIĘ', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>
+
+  <li class="list_li"><%= button_to 'wyloguj się', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>
+
+  <h3>Dodaj użytkownika do tego portfela:</h3>
+  <%= form_with(model: @wallet, url: confirm_wallet_path(@wallet)) do |form| %>
+    <%= form.collection_select :user_id, User.all, :id, :nick %>
+    <%= form.submit 'Potwierdź' %>
+  <% end %>
+
 </div>
 
 <div style="text-align: center;"><%= pie_chart @wallet.spendings.group(:category_id).count %></div>

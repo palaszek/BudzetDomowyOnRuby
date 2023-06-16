@@ -1,0 +1,15 @@
+<h2>Dodaj Portfel dla: "<%= @user.nick %>"</h2>
+<%=form_with model: [@wallet] do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @wallet.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

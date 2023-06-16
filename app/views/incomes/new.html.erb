@@ -1,0 +1,21 @@
+<h2>Dodaj przychód dla: "<%= @wallet.name %>"</h2>
+<%=form_with model: [@wallet, @wallet.incomes.build] do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% @wallet.incomes.build.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :amount %><br>
+    <%= form.number_field :amount %>
+    <% @wallet.incomes.build.errors.full_messages_for(:amount).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

@@ -1,3 +1,10 @@
 <h1>Public#home</h1>
 <p>Find me in app/views/public/home.html.erb</p>
-<li class="list_li"><%= button_to 'WYLOGUJ SIĘ', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>
+<div class="click">
+  <div class="button-sign_in">
+    <%= button_to "ZALOGUJ SIĘ", new_user_session_path, method: :get, class: "button_home" %>
+  </div>
+  <div class="button-sign_up">
+    <%= button_to "ZAREJESTRUJ SIĘ", new_user_registration_path, method: :get, class: "button_home" %>
+  </div>
+</div>

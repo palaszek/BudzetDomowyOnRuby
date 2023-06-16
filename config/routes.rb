@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root to: 'public#home'
 
     resources :wallets do
+      member do
+        patch 'confirm'
+      end
     resources :incomes
     resources :spendings
     end
