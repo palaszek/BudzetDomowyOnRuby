@@ -10,3 +10,7 @@
 </ul>
 <button type="button"><%= link_to "Dodaj nowy portfel", new_wallet_path(user_id: @user.id) %></button>
 <li class="list_li"><%= button_to 'wyloguj się', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>
+<button type="button"><%= link_to "USUŃ KONTO", public_path(@user), data: {
+  turbo_method: :delete,
+  turbo_confirm: "Napewno chcesz usunąć użytkownika?\n(Czynność ta nie usunie porfeli)"
+} %></button>

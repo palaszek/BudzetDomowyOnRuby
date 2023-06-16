@@ -4,18 +4,23 @@
   <title>Budzet domowy</title>
   <meta http-equiv="Content-Type" content="text/html;  charset=iso-8859-2">
   <link rel="stylesheet" href="walletshow.css" type="text/css">
+  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 
 </head>
 <body>
 
 <div style="text-align: center;"><h1><%= @wallet.name%></h1></div>
+
 <div class="wrapper">
   <div class="left-column">
     <h3>Dostepne Portfele:</h3>
     <ul>
       <% @user.wallets.each do |wallet| %>
         <li>
-          <%= link_to wallet.name, wallet %>
+          <%= link_to wallet.name, wallet %> <button type="button"><%= link_to "Destroy", wallet_path(wallet), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Napewno chcesz usunąć porfel i całą jego historię?"
+        } %></button>
         </li>
       <%end%>
       <button type="button"><%= link_to "Dodaj nowy portfel", new_wallet_path(user_id: @user.id) %></button>
@@ -54,10 +59,12 @@
 
 </div>
 
-<div style="text-align: center;"><%= pie_chart @wallet.spendings.group(:category_id).count %></div>
+<%= pie_chart @chart_data, library: { title: { text: 'Sum of Spending Amounts by Category' } } %>
+
 
 
 <div style="text-align: center;"><h3><%= @wallet.name %> - dostępne środki: <%= @dostepnesrodki.round(2) %>zł</h3></div>
+<%= link_to 'Wygeneruj PDF', generate_pdf_wallet_path(@wallet, format: :pdf) %>
 
 </body>
 </html>

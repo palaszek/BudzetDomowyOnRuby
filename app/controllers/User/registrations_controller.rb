@@ -4,6 +4,13 @@ class User::RegistrationsController < Devise::RegistrationsController
    before_action :configure_sign_up_params, only: [:create, :new]
   # before_action :configure_account_update_params, only: [:update]
    layout false
+   def create
+     if verify_recaptcha
+       super
+     else
+       super
+     end
+   end
   # GET /resource/sign_up
   # def new
   #   super
@@ -53,7 +60,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   #The path used after sign up.
    def after_sign_up_path_for(resource)
   # super(resource)
-  return wallets(current_user.id)
+  return wallets_path
   end
 
   # The path used after sign up for inactive accounts.

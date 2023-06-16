@@ -17,6 +17,7 @@ class SpendingsController < ApplicationController
     end
   end
 
+
   private
   def spending_params
     params.require(:spending).permit(:title, :amount, :category_id)
