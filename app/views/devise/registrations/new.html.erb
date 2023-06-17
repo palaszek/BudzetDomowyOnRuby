@@ -1,36 +1,60 @@
-<h2>Sign up</h2>
+<%= stylesheet_link_tag "registrations.css" %>
+<head>
+  <title>Rejestracja</title>
+  <link href='http://fonts.googleapis.com/css?family=Poppins&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+</head>
+<body>
+  <section>
+    <div id="box">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <!--<div class="lewa">-->
+          <h2>Rejestracja</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="field">
+            <ion-icon name="pricetag-outline"></ion-icon>
+            <%= f.label :nick, class: "etykieta" %><br />
+            <%= f.text_field :nick, autofocus: true, autocomplete: "nick", class: "okno"  %>
+          </div>
 
-  <div class="field">
-    <%= f.label :nick %><br />
-    <%= f.text_field :nick, autofocus: true, autocomplete: "nick" %>
-  </div>
+          <div class="field">
+            <ion-icon name="mail-outline"></ion-icon>
+            <%= f.label :email, class: "etykieta" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "okno"  %>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+          <div class="field">
+            <ion-icon name="lock-open-outline"></ion-icon>
+            <%= f.label :password, class: "etykieta" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> znaków minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "okno"  %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+          <div class="field">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <%= f.label :password_confirmation, class: "etykieta" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "okno"  %><br/>
+          </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+          <%= recaptcha_tags %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+          <div class="actions"><br/>
+            <%= f.submit "Sign up", class: "guzik"%>
+          </div>
 
-<%= recaptcha_tags %>
-
-<%= render "devise/shared/links" %>
+          <div class="powrot">
+            <%= link_to "Powrót do strony głównej", '/', class: "linczek" %>
+          </div>
+        <!--</div>
+        <div class="prawa">-->
+          <%= render "devise/shared/error_messages", resource: resource %>
+        <!--</div>-->
+      <% end %>
+      <!--<%= render "devise/shared/links" %>-->
+    </div>
+  </section>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>

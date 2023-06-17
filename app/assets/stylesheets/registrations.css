@@ -1,0 +1,140 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url('tlo3.jpg')no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#box
+{
+    position: relative;
+    width: 400px;
+    height: 680px;
+    background-color: rgba(108,63,0,0.3);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*.lewa
+{
+    position: relative;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+}
+.prawa
+{
+    background-color: lightgreen;
+    position: relative;
+    right: 250px;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}*/
+h2
+{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+.field
+{
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid white;
+}
+.etykieta, em
+{
+    top: 50%;
+    left: 5px;
+    color: white;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+    font-weight: 900;
+}
+.okno
+{
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: white;
+}
+ion-icon
+{
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-size: 1.2em;
+    top: 2px;
+}
+.remember
+{
+    margin: -15px 5px 15px;
+    font-size: .9em;
+    color: white;
+    display: flex;
+}
+.label2
+{
+    margin-left: 5px;
+}
+.label2:hover, .linczek:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.label2:active, .linczek:active
+{
+    text-decoration: underline;
+    color: #F4D5AA;
+}
+.guzik
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+.powrot
+{
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.linczek
+{
+    text-decoration: none;
+    font-size: .9em;
+    color: white;
+}
