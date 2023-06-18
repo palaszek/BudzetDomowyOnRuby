@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Budzet domowy</title>
-  <meta http-equiv="Content-Type" content="text/html;  charset=iso-8859-2">
-  <link rel="stylesheet" href="walletshow.css" type="text/css">
-  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-
-</head>
-<body>
-
-<div style="text-align: center;"><h1><%= @wallet.name%></h1></div>
-
-<div class="wrapper">
-  <div class="left-column">
-    <h3>Dostepne Portfele:</h3>
-    <ul>
-      <% @user.wallets.each do |wallet| %>
-        <li>
-          <%= link_to wallet.name, wallet %> <button type="button"><%= link_to "Destroy", wallet_path(wallet), data: {
-          turbo_method: :delete,
-          turbo_confirm: "Napewno chcesz usunąć porfel i całą jego historię?"
-        } %></button>
-        </li>
-      <%end%>
-      <button type="button"><%= link_to "Dodaj nowy portfel", new_wallet_path(user_id: @user.id) %></button>
-
-    </ul></div>
-  <div class="right-column">
-    <h3>Historia Transakcji:</h3></div>
-  <ul>
-    <% @transactions.each do |transaction| %>
-      <li>
-        <%= transaction.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
-        <%if transaction.is_a? Income  %>
-          <d style="color:green">Przychód:</d>
-        <% else %>
-          <d style="color:red">Wydatek:</d>
-        <% end %>
-
-
-
-        <b><%= transaction.title %></b> <%= transaction.amount %>zł
-      </li>
-    <%end%>
-  </ul>
-
-
-  <button type="button"><%= link_to "Dodaj Wydatek", new_wallet_spending_path(wallet_id: @wallet.id) %></button>
-  <button type="button"><%= link_to "Dodaj Przychód", new_wallet_income_path(wallet_id: @wallet.id) %></button>
-
-  <li class="list_li"><%= button_to 'wyloguj się', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>
-
-  <h3>Dodaj użytkownika do tego portfela:</h3>
-  <%= form_with(model: @wallet, url: confirm_wallet_path(@wallet)) do |form| %>
-    <%= form.collection_select :user_id, User.all, :id, :nick %>
-    <%= form.submit 'Potwierdź' %>
-  <% end %>
-
-</div>
-
-<%= pie_chart @chart_data, library: { title: { text: 'Sum of Spending Amounts by Category' } } %>
-
-
-
-<div style="text-align: center;"><h3><%= @wallet.name %> - dostępne środki: <%= @dostepnesrodki.round(2) %>zł</h3></div>
-<%= link_to 'Wygeneruj PDF', generate_pdf_wallet_path(@wallet, format: :pdf) %>
-
-</body>
+  <%= stylesheet_link_tag "show_wallet.css" %>
+  <head>
+    <title>Portfel</title>
+    <link href='http://fonts.googleapis.com/css?family=Poppins&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  </head>
+  <body>
+    <div>
+      <%= image_tag "Wersja5.png", class: "logo" %>
+    </div>
+    <div class="rama">
+      <div class="gornagora">
+        <h2><%= @wallet.name%></h2>
+      </div>
+      <div class="gorna">
+        <div class="lewe">
+          <h3>Dostępne portfele</h3>
+          <div class="lista">
+            <ul>
+              <% @user.wallets.each do |wallet| %>
+              <li>
+                <%= link_to wallet.name, wallet, class: "linczek" %> <label><button type="button" class="usun"><%= link_to "Usuń", wallet_path(wallet), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Napewno chcesz usunąć porfel i całą jego historię?"
+              }, class: "usun" %></button></label>
+              </li>
+              <%end%>
+              <button type="button" class="guziki"><%= link_to "Dodaj nowy portfel", new_wallet_path(user_id: @user.id), class: "guziki" %></button>
+            </ul>
+          </div>
+        </div>
+        <div class="srodek">
+          <h3>Historia Transakcji</h3>
+          <div class="lista">
+            <ul>
+              <% @transactions.each do |transaction| %>
+                <li>
+                  <%= transaction.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
+                  <%if transaction.is_a? Income  %>
+                    <d style="color:#2cb62c">Przychód:</d>
+                  <% else %>
+                    <d style="color:#ee2020">Wydatek:</d>
+                  <% end %>
+                  <b><%= transaction.title %></b> <%= transaction.amount %>zł
+                </li>
+              <%end%>
+            </ul>
+          </div>
+          <button type="button" class="guziki"><%= link_to "Dodaj Wydatek", new_wallet_spending_path(wallet_id: @wallet.id), class: "guziki" %></button>
+          <button type="button" class="guziki"><%= link_to "Dodaj Przychód", new_wallet_income_path(wallet_id: @wallet.id), class: "guziki" %></button>
+        </div>
+        <div class="prawe">
+          <h3>Zarządzanie kontem</h3>
+            <%= button_to 'Wyloguj się', destroy_user_session_path, method: :delete, class: "buttonNavVer" %>
+          <h3>Zarządzanie portfelem</h3>
+          <a class="etykiet">Dodaj użytkownika do tego portfela:</a>
+            <%= form_with(model: @wallet, url: confirm_wallet_path(@wallet)) do |form| %>
+            <div class="rozwijana"><%= form.collection_select :user_id, User.all, :id, :nick, class: "rozwijana" %></div>
+              <%= form.submit 'Potwierdź', class: "guziki"%>
+            <% end %>
+        </div>
+      </div>
+      <div class="dolna">
+        <%= pie_chart @chart_data, library: { title: { text: 'Sum of Spending Amounts by Category' } } %>
+        <div><h3><%= @wallet.name %> - dostępne środki: <%= @dostepnesrodki.round(2) %>zł</h3>
+          <button type="button" class="guziki"><%= link_to 'Wygeneruj PDF', generate_pdf_wallet_path(@wallet, format: :pdf), class: "pdf" %></button></div>
+      </div>
+    </div>
+  </body>
 </html>

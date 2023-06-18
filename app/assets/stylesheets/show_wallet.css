@@ -1,0 +1,173 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: white;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url('tlo1.jpg')no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: scroll;
+}
+.rama
+{
+    position: relative;
+    width: 1400px;
+    height: 900px;
+    background-color: rgba(32,0,1,0.9);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: clip;
+}
+.gornagora
+{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gorna
+{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    overflow: clip;
+}
+.dolna
+{
+    width: 100%;
+    height: 380px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lewe, .prawe, .srodek
+{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    padding-top: 15px;
+}
+.lewe
+{
+    width: 400px;
+}
+.srodek
+{
+    width: 600px;
+    float: left;
+}
+.prawe
+{
+    width: 400px;
+    float: left;
+}
+.logo
+{
+    width: 400px;
+}
+.guziki, .buttonNavVer
+{
+    width: 300px;
+    color: black;
+    cursor: pointer;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 1em;
+}
+.usun
+{
+    width: 80px;
+    height: 30px;
+    font-size: 0.9em;
+    cursor: pointer;
+    color: #fda9a9;
+    background-color: #c70000;
+    font-weight: 900;
+    border-color: #c70000;
+    border-radius: 8px;
+}
+.lista button
+{
+    margin-left: 10px;
+}
+.usun:hover
+{
+    color: #ff9898;
+    background-color: #910000;
+    border-color: #910000;
+}
+.usun:active
+{
+    color: #ff9898;
+    background-color: #800000;
+    border-color: #800000;
+}
+li
+{
+    margin-bottom: 8px;
+}
+.linczek
+{
+    font-size: 1em;
+}
+.linczek:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.linczek:active
+{
+    text-decoration: underline;
+    color: #F4D5AA;
+}
+h3
+{
+    font-size: 1.5em;
+    padding-bottom: 15px;
+}
+d
+{
+    font-weight: 800;
+}
+.prawe button
+{
+    margin-bottom: 20px;
+}
+.rozwijana
+{
+    margin-left: 20px;
+    color: black;
+    padding-top: 10px;
+}
+.dolna div
+{
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pdf
+{
+    align: right;
+    color: black;
+}

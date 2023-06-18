@@ -1,0 +1,133 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: white;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url('tlo1.jpg')no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.box
+{
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    background-color: rgba(32,0,1,0.9);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: clip;
+}
+.gora
+{
+    width: 100%;
+    height: 100px;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dol
+{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lewa, .prawa
+{
+    float: left;
+    height: 100%;
+    padding-left: 30px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.lewa
+{
+    width: 800px;
+    overflow: scroll;
+}
+.prawa
+{
+    width: 400px;
+    align-items: center;
+}
+.logo
+{
+    width: 400px;
+}
+.guziki, .buttonNavVer, .usuwanie
+{
+    width: 300px;
+    color: black;
+    cursor: pointer;
+    margin: 10px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 1em;
+}
+h2
+{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+h3
+{
+    font-size: 1.5em;
+    padding-bottom: 10px;
+}
+ul
+{
+    padding-left: 30px;
+    font-size: 1.2em;
+}
+.linczek
+{
+    font-size: 1em;
+}
+.linczek:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.linczek:active
+{
+    text-decoration: underline;
+    color: #F4D5AA;
+}
+.usuwanie
+{
+    color: #fda9a9;
+    background-color: #c70000;
+    font-weight: 900;
+    border-color: #c70000;
+}
+.usuwanie:hover
+{
+    color: #ff9898;
+    background-color: #910000;
+    border-color: #910000;
+}
+.usuwanie:active
+{
+    color: #ff9898;
+    background-color: #800000;
+    border-color: #800000;
+}

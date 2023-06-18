@@ -1,0 +1,88 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url('tlo1.jpg')no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.box
+{
+    position: relative;
+    width: 520px;
+    height: 400px;
+    background-color: rgba(32,0,1,0.9);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: clip;
+}
+.logo
+{
+    width: 400px;
+}
+.guzik
+{
+    width: 380px;
+    color: black;
+    cursor: pointer;
+    margin: 10px;
+    height: 45px;
+    border-radius: 8px;
+    font-size: 1.2em;
+}
+h2
+{
+    font-size: 1.8em;
+    color: white;
+    text-align: center;
+}
+.field
+{
+    position: relative;
+    margin: 30px 0;
+    width: 370px;
+    border-bottom: 2px solid white;
+}
+.etykieta
+{
+    top: 50%;
+    left: 5px;
+    color: white;
+    font-size: 1.2em;
+    pointer-events: none;
+    transition: .5s;
+    font-weight: 900;
+}
+ion-icon
+{
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-size: 1.2em;
+}
+.okno
+{
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: white;
+}

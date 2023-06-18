@@ -1,23 +1,27 @@
-<%= stylesheet_link_tag "home.css" %>
-<head>
-  <title>Strona główna</title>
-  <link href='http://fonts.googleapis.com/css?family=Poppins&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-</head>
-<body>
-  <div>
-    <%= image_tag "Wersja5.png", class: "logo" %>
-  </div>
-  <div class="click">
-    <h2>Strona główna</h2>
-    <div class="opis">
-      <p><u><b>Walleting</b></u> jest darmową platformą, pozwalającą w łatwy sposób kontrolować stan budżetu domowego.</p>
-      <p>Dołącz do nas, by wraz z członkami rodziny zarządzać posiadanymi portfelami!</p>
+<!DOCTYPE html>
+<html>
+  <%= stylesheet_link_tag "home.css" %>
+  <head>
+    <title>Strona główna</title>
+    <link href='http://fonts.googleapis.com/css?family=Poppins&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  </head>
+  <body>
+    <div>
+      <%= image_tag "Wersja5.png", class: "logo" %>
     </div>
-    <div class="button-sign_in">
-      <%= button_to "Zaloguj się", new_user_session_path, method: :get, class: "button_home" %>
+    <div class="click">
+      <h2>Strona główna</h2>
+      <div class="opis">
+        <p><u><b>Walleting</b></u> jest darmową platformą, pozwalającą w łatwy sposób kontrolować stan budżetu domowego.</p>
+        <p>Dołącz do nas, by wraz z członkami rodziny zarządzać posiadanymi portfelami!</p>
+      </div>
+      <div class="button-sign_in">
+        <%= button_to "Zaloguj się", new_user_session_path, method: :get, class: "button_home" %>
+      </div>
+      <div class="button-sign_up">
+        <%= button_to "Zarejestruj się", new_user_registration_path, method: :get, class: "button_home" %>
+      </div>
     </div>
-    <div class="button-sign_up">
-      <%= button_to "Zarejestruj się", new_user_registration_path, method: :get, class: "button_home" %>
-    </div>
-  </div>
-</body>
+  </body>
+</html>

@@ -1,21 +1,42 @@
-<h2>Dodaj przychód dla: "<%= @wallet.name %>"</h2>
-<%=form_with model: [@wallet, @wallet.incomes.build] do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% @wallet.incomes.build.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :amount %><br>
-    <%= form.number_field :amount %>
-    <% @wallet.incomes.build.errors.full_messages_for(:amount).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-
-<% end %>
+<!DOCTYPE html>
+<html>
+  <%= stylesheet_link_tag "new_spending.css" %>
+  <head>
+    <title>Nowy wydatek</title>
+    <link href='http://fonts.googleapis.com/css?family=Poppins&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  </head>
+  <body>
+    <div>
+      <%= image_tag "Wersja5.png", class: "logo" %>
+    </div>
+    <div class="boxik">
+      <h2>Dodaj przychód dla: "<%= @wallet.name %>"</h2>
+      <div>
+        <%=form_with model: [@wallet, @wallet.incomes.build] do |form| %>
+          <div class="field">
+            <ion-icon name="pricetag-outline"></ion-icon>
+            <%= form.label :title, class: "etykieta" %><br>
+            <%= form.text_field :title, class: "okno" %>
+          </div>
+            <% @wallet.incomes.build.errors.full_messages_for(:title).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          <div class="field">
+            <ion-icon name="calculator-outline"></ion-icon>
+            <%= form.label :amount, class: "etykieta" %><br>
+            <%= form.number_field :amount, class: "okno" %>
+          </div>
+            <% @wallet.incomes.build.errors.full_messages_for(:amount).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          <div>
+            <%= form.submit "Dodaj", class: "guzik" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

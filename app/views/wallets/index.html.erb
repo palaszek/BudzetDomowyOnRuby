@@ -1,16 +1,41 @@
-<div style="text-align: center;"><h1>Budżet domowy</h1></div>
-<div style="text-align: center;"><h2>Witaj <%= @user.nick %>!</h2></div>
-
-<ul>
-  <% @wallets.each do |wallet| %>
-    <li>
-      <%= link_to wallet.name, wallet %>
-    </li>
-  <%end%>
-</ul>
-<button type="button"><%= link_to "Dodaj nowy portfel", new_wallet_path(user_id: @user.id) %></button>
-<li class="list_li"><%= button_to 'wyloguj się', destroy_user_session_path, method: :delete, class: "buttonNavVer" %></li>
-<button type="button"><%= link_to "USUŃ KONTO", public_path(@user), data: {
-  turbo_method: :delete,
-  turbo_confirm: "Napewno chcesz usunąć użytkownika?\n(Czynność ta nie usunie porfeli)"
-} %></button>
+<!DOCTYPE html>
+<html>
+    <%= stylesheet_link_tag "main_wallet.css" %>
+    <head>
+      <title>Witaj!</title>
+      <link href='http://fonts.googleapis.com/css?family=Poppins&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    </head>
+    <body>
+        <div>
+          <%= image_tag "Wersja5.png", class: "logo" %>
+        </div>
+        <div class="box">
+          <div class="gora">
+                <h2>Budżet domowy</h2>
+                <h2>Witaj <%= @user.nick %>!</h2>
+          </div>
+          <div class="dol">
+            <div class="lewa">
+                  <h3>Dostępne portfele</h3>
+                  <div class="lista"><ul>
+                    <% @wallets.each do |wallet| %>
+                      <li>
+                        <%= link_to wallet.name, wallet, class: "linczek" %>
+                      </li>
+                    <%end%>
+                  </ul></div>
+                <label><button type="button" class="guziki"><%= link_to "Dodaj nowy portfel", new_wallet_path(user_id: @user.id), class: "guziki" %></button></label>
+              </div>
+              <div class="prawa">
+                  <h3>Zarządzanie kontem</h3>
+                  <%= button_to 'Wyloguj się', destroy_user_session_path, method: :delete, class: "buttonNavVer" %>
+                <label><button type="button" class="usuwanie"><%= link_to "USUŃ KONTO", public_path(@user), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Napewno chcesz usunąć użytkownika?\n(Czynność ta nie usunie porfeli)"
+                }, class: "usuwanie" %></button></label>
+              </div>
+          </div>
+        </div>
+    </body>
+</html>
