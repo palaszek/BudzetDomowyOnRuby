@@ -7,6 +7,7 @@
 section
 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -113,4 +114,8 @@ ion-icon
     text-decoration: none;
     font-size: .9em;
     color: white;
+}
+.logo
+{
+    width: 400px;
 }

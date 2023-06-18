@@ -1,10 +1,23 @@
-<h1>Public#home</h1>
-<p>Find me in app/views/public/home.html.erb</p>
-<div class="click">
-  <div class="button-sign_in">
-    <%= button_to "ZALOGUJ SIĘ", new_user_session_path, method: :get, class: "button_home" %>
+<%= stylesheet_link_tag "home.css" %>
+<head>
+  <title>Strona główna</title>
+  <link href='http://fonts.googleapis.com/css?family=Poppins&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div>
+    <%= image_tag "Wersja5.png", class: "logo" %>
   </div>
-  <div class="button-sign_up">
-    <%= button_to "ZAREJESTRUJ SIĘ", new_user_registration_path, method: :get, class: "button_home" %>
+  <div class="click">
+    <h2>Strona główna</h2>
+    <div class="opis">
+      <p><u><b>Walleting</b></u> jest darmową platformą, pozwalającą w łatwy sposób kontrolować stan budżetu domowego.</p>
+      <p>Dołącz do nas, by wraz z członkami rodziny zarządzać posiadanymi portfelami!</p>
+    </div>
+    <div class="button-sign_in">
+      <%= button_to "Zaloguj się", new_user_session_path, method: :get, class: "button_home" %>
+    </div>
+    <div class="button-sign_up">
+      <%= button_to "Zarejestruj się", new_user_registration_path, method: :get, class: "button_home" %>
+    </div>
   </div>
-</div>
+</body>
