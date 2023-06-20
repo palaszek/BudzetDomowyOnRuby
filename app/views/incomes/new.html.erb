@@ -25,7 +25,7 @@
           <div class="field">
             <ion-icon name="calculator-outline"></ion-icon>
             <%= form.label :amount, class: "etykieta" %><br>
-            <%= form.number_field :amount, class: "okno" %>
+            <%= form.number_field :amount, class: "okno", step: "any" %>
           </div>
             <% @wallet.incomes.build.errors.full_messages_for(:amount).each do |message| %>
               <div><%= message %></div>
@@ -35,6 +35,7 @@
           </div>
         <% end %>
       </div>
+      <button type="button" class="guziki"><%= link_to "Wróć do portfela",wallet_path(@wallet),  class: "guziki" %></button>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

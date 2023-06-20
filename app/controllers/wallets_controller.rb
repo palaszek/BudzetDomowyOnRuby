@@ -41,24 +41,19 @@ class WalletsController < ApplicationController
   def create
     @user = User.find(current_user.id)
     @wallet = @user.wallets.create(wallet_params)
-
-    #if @user.save
     redirect_to wallet_path(@wallet)
-    #else
-    # flash.alert = @user.errors.full_messages
-    # render :new, status: :unprocessable_entity
-    #end
-  end
+
+    end
   def confirm
     @wallet = Wallet.find(params[:id])
     user_id = params[:wallet][:user_id]
     @user = User.find(user_id)
-    if @user.wallets.where(name: @wallet.name) == @wallet.name
-      flash.alert = "Użytkownik #{@user.nick} jest już przypisany do tego portfela"
-    else
+    if @user.wallets.where(name: @wallet.name) == []
       @user.wallets << @wallet
       flash.alert = "Pomyślnie dodano użytkownika #{@user.nick} do portfela #{@wallet.name}"
+    else
 
+      flash.alert = "Użytkownik #{@user.nick} jest już przypisany do tego portfela"
       end
     redirect_to @wallet
   end
