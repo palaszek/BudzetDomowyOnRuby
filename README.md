@@ -1,24 +1,4 @@
-# README
+#Aplikacja webowa
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Powstała w ramach projektu na zajęciach "Rozwiązania szkieletowe".
+Tematem projektu było stworzenie Strony gdzie można zapisywac różne wydatki i przychody do portfeli użytkowników, a następnie przetwarzać te informacje na wygodne statystyki i wykresy.
